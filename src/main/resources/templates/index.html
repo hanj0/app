@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+</head>
+<body style="text-align:center; margin-top:100px;">
+
+<h1 th:text="${count}">0</h1>
+
+<form action="/up" method="post">
+    <button type="submit">⬆️ UP</button>
+</form>
+
+<form action="/down" method="post">
+    <button type="submit">⬇️ DOWN</button>
+</form>
+
+</body>
+</html>
