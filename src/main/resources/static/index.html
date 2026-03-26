@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* 가로 중앙 */
+            align-items: center;     /* 세로 중앙 */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #count {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div id="count">0</div>
+
+    <button onclick="increase()">UP</button>
+    <button onclick="decrease()">DOWN</button>
+</div>
+
+<script>
+    async function load() {
+        const res = await fetch('/api/counter');
+        const data = await res.json();
+        document.getElementById('count').innerText = data;
+    }
+
+    async function increase() {
+        const res = await fetch('/api/counter/up', { method: 'POST' });
+        const data = await res.json();
+        document.getElementById('count').innerText = data;
+    }
+
+    async function decrease() {
+        const res = await fetch('/api/counter/down', { method: 'POST' });
+        const data = await res.json();
+        document.getElementById('count').innerText = data;
+    }
+
+    load();
+</script>
+
+</body>
+</html>

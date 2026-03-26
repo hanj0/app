@@ -1,12 +1,13 @@
 package com.example.updown.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import com.example.updown.service.CounterService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
+@RestController
+@RequestMapping("/api/counter")
 public class CounterController {
 
     private final CounterService counterService;
@@ -15,21 +16,18 @@ public class CounterController {
         this.counterService = counterService;
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("count", counterService.getCount());
-        return "index";
+    @GetMapping
+    public int getCount() {
+        return counterService.getCount();
     }
 
     @PostMapping("/up")
-    public String up() {
-        counterService.increase();
-        return "redirect:/";
+    public int increase() {
+        return counterService.increase();
     }
 
     @PostMapping("/down")
-    public String down() {
-        counterService.decrease();
-        return "redirect:/";
+    public int decrease() {
+        return counterService.decrease();
     }
 }

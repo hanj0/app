@@ -11,11 +11,11 @@ public class CounterService {
         return count;
     }
 
-    public void increase() {
-        count++;
+    public int increase() {
+        return ++count;
     }
 
-    public void decrease() {
-        count--;
+    public int decrease() {
+        return --count;
     }
 }
