@@ -23,11 +23,13 @@ public class CounterController {
 
     @PostMapping("/up")
     public int increase() {
-        return counterService.increase();
+        counterService.increase();
+        return counterService.getCount();
     }
 
     @PostMapping("/down")
     public int decrease() {
-        return counterService.decrease();
+        counterService.decrease();
+        return counterService.getCount();
     }
 }

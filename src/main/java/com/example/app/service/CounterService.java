@@ -31,14 +31,12 @@ public class CounterService {
     }
 
     @Transactional
-    public int increase() {
+    public void increase() {
         counterRepository.increase(1L);
-        return getCount();
     }
 
     @Transactional
-    public int decrease() {
+    public void decrease() {
         counterRepository.decrease(1L);
-        return getCount();
     }
 }
