@@ -1,8 +1,8 @@
-package com.example.updown.controller;
+package com.example.app.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.updown.service.CounterService;
+import com.example.app.service.CounterService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,11 +23,13 @@ public class CounterController {
 
     @PostMapping("/up")
     public int increase() {
-        return counterService.increase();
+        counterService.increase();
+        return counterService.getCount();
     }
 
     @PostMapping("/down")
     public int decrease() {
-        return counterService.decrease();
+        counterService.decrease();
+        return counterService.getCount();
     }
 }

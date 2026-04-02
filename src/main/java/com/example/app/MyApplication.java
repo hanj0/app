@@ -1,13 +1,13 @@
-package com.example.updown;
+package com.example.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UpdownApplication {
+public class MyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UpdownApplication.class, args);
+        SpringApplication.run(MyApplication.class, args);
     }
 
 }
